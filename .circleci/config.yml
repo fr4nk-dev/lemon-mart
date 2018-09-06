@@ -2,14 +2,11 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: circleci/node:7.10
     working_directory: /usr/src
      steps:
       - checkout
-      - setup_remote_docker:
-          docker_layer_caching: false
-       - run:
+      - run:
           name: Build Docker Image
           command: |
             npm run build:ci
